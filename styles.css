@@ -1,21 +1,15 @@
-/* General Layout */
+/* ==========================================
+   GENERAL STYLES
+   ========================================== */
 body {
   text-align: center;
   margin: 0;
   font-family: 'Merriweather', serif;
   color: #40514E;
-  background-color: #ffffff; /* Cleaner background for the whole page */
+  background-color: #ffffff;
 }
 
-/* Typography */
-h1 {
-  margin: 50px auto 0 auto; /* Fixed: Spaces instead of commas */
-  font-size: 5.625rem;
-  font-family: 'Sacramento', cursive;
-  color: #66BFBF;
-}
-
-.typewrite {
+h1, .typewrite {
   margin: 50px auto 0 auto;
   font-size: 5.625rem;
   font-family: 'Rubik Maze', cursive;
@@ -36,7 +30,9 @@ h3 {
   color: #11999E;
 }
 
-/* Containers */
+/* ==========================================
+   CONTAINERS
+   ========================================== */
 .top-container {
   background-color: #c6fced;
   padding-top: 100px;
@@ -52,16 +48,14 @@ h3 {
   padding: 50px 0 20px;
 }
 
-/* Images & Media */
-img {
-  max-width: 100%;
-}
-
+/* ==========================================
+   IMAGES & ICONS
+   ========================================== */
 .profile_pic {
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  object-fit: cover; /* Ensures photo doesn't look stretched */
+  object-fit: cover;
   border: 5px solid #66BFBF;
   margin-bottom: 20px;
 }
@@ -78,84 +72,137 @@ img {
   margin-top: 50px;
 }
 
-/* Timeline Fixes (This solves the blank section issue) */
+/* ==========================================
+   THE TIMELINE (SIDE-BY-SIDE)
+   ========================================== */
 .time {
-  background-color: #f7fcfb; /* Slightly different shade to separate sections */
-  padding: 50px 0;
+  background-color: #f7fcfb;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.ag-timeline {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+/* Vertical Line in the Center */
+.ag-timeline_line {
+  width: 2px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
 .ag-timeline_list {
-  position: relative;
   list-style: none;
   padding: 0;
-}
-
-/* Force visibility of timeline cards */
-.ag-timeline-card_item {
-  display: inline-block;
-  width: 45%;
-  background-color: #282828;
-  opacity: 1 !important; /* Fixed: Force visibility */
-  transform: translateX(0) !important; /* Fixed: Bring cards back to center */
-  border-radius: 6px;
-  position: relative;
-  text-align: left;
-  transition: transform 0.3s ease;
+  margin: 0;
 }
 
 .ag-timeline_item {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
+  position: relative;
   width: 100%;
-  display: block;
-  clear: both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Align cards left and right */
-.ag-timeline_item:nth-child(odd) .ag-timeline-card_item {
-  float: left;
-  margin-left: 2%;
+/* The Card Container */
+.ag-timeline-card_item {
+  width: 45%;
+  position: relative;
+  z-index: 2;
 }
 
-.ag-timeline_item:nth-child(even) .ag-timeline-card_item {
-  float: right;
-  margin-right: 2%;
+/* The 50/50 Split Box */
+.ag-timeline-card_inner {
+  display: flex; /* Forces side-by-side */
+  flex-direction: row; 
+  background-color: #282828;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  opacity: 1 !important; 
+  transform: none !important;
+}
+
+.ag-timeline-card_img-box {
+  flex: 1; /* Takes exactly 50% */
+  min-height: 250px;
 }
 
 .ag-timeline-card_info {
-  padding: 20px;
+  flex: 1; /* Takes exactly 50% */
+  padding: 30px;
   background-color: #11999E;
-  color: white;
-}
-
-.ag-timeline-card_meta {
-  color: #11999E;
-  font-size: 1.5rem;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
 }
 
 .time-image {
   width: 100%;
-  height: auto;
-  border-radius: 6px 6px 0 0;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Skills Row */
+/* Alternating Logic */
+.ag-timeline_item:nth-child(odd) {
+  justify-content: flex-start;
+  padding-left: 5%;
+}
+
+.ag-timeline_item:nth-child(even) {
+  justify-content: flex-end;
+  padding-right: 5%;
+}
+
+/* Year Circle */
+.ag-timeline-card_point {
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  background-color: #ffffff;
+  border: 3px solid #11999E;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-weight: bold;
+}
+
+.ag-timeline-card_meta {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #11999E;
+  margin-bottom: 5px;
+}
+
+.ag-timeline-card_desc {
+  font-size: 15px;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   SKILLS & FOOTER
+   ========================================== */
 .skill-row {
   width: 60%;
-  margin: 80px auto;
+  margin: 100px auto;
   text-align: left;
   line-height: 2;
-  clear: both;
 }
 
-.skill_gif, .badminton_gif {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-/* Buttons */
 .btn {
   background: #11cdd4;
   background-image: linear-gradient(to bottom, #11cdd4, #11999e);
@@ -164,7 +211,6 @@ img {
   font-size: 20px;
   padding: 10px 20px;
   text-decoration: none;
-  border: none;
   display: inline-block;
 }
 
@@ -172,29 +218,31 @@ img {
   background: #30ec3b;
   background-image: linear-gradient(to bottom, #30ec3b, #2bc48d);
   color: white;
-  text-decoration: none;
 }
 
-/* Footer Links */
 .footer-link {
   color: #11999E;
   margin: 10px 20px;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
-.footer-link:hover {
-  color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .ag-timeline-card_item {
-    width: 85%;
-    float: none !important;
-    margin: 10px auto !important;
+/* ==========================================
+   MOBILE RESPONSIVENESS
+   ========================================== */
+@media (max-width: 991px) {
+  .ag-timeline-card_inner {
+    flex-direction: column; /* Stacks image on top on mobile */
   }
-  .skill-row {
-    width: 90%;
+  .ag-timeline-card_item {
+    width: 80%;
+  }
+  .ag-timeline_line, .ag-timeline-card_point {
+    left: 20px;
+    transform: none;
+  }
+  .ag-timeline_item {
+    justify-content: flex-start !important;
+    padding-left: 60px !important;
   }
 }
