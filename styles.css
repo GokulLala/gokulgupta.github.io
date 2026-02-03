@@ -1,5 +1,5 @@
 /* ==========================================
-   GENERAL STYLES
+   1. GENERAL STYLES & TYPOGRAPHY
    ========================================== */
 body {
   text-align: center;
@@ -30,8 +30,12 @@ h3 {
   color: #11999E;
 }
 
+p {
+  line-height: 2;
+}
+
 /* ==========================================
-   CONTAINERS
+   2. CONTAINERS
    ========================================== */
 .top-container {
   background-color: #c6fced;
@@ -46,10 +50,11 @@ h3 {
 .bottom-container {
   background-color: #66bfbf;
   padding: 50px 0 20px;
+  font-size: 17px;
 }
 
 /* ==========================================
-   IMAGES & ICONS
+   3. IMAGES & CLOUDS
    ========================================== */
 .profile_pic {
   border-radius: 50%;
@@ -58,6 +63,11 @@ h3 {
   object-fit: cover;
   border: 5px solid #66BFBF;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.profile_pic:hover {
+  transform: scale(1.05);
 }
 
 .top_cloud {
@@ -73,7 +83,7 @@ h3 {
 }
 
 /* ==========================================
-   THE TIMELINE (SIDE-BY-SIDE)
+   4. STAGGERED TIMELINE (STORY SECTION)
    ========================================== */
 .time {
   background-color: #f7fcfb;
@@ -81,120 +91,87 @@ h3 {
   overflow: hidden;
 }
 
-.ag-timeline {
-  display: block;
-  width: 100%;
-  position: relative;
-}
-
-/* Vertical Line in the Center */
-.ag-timeline_line {
-  width: 2px;
-  background-color: #ffffff;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
 .ag-timeline_list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .ag-timeline_item {
-  margin-bottom: 100px;
-  position: relative;
+  margin-bottom: 60px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* The Card Container */
-.ag-timeline-card_item {
-  width: 45%;
-  position: relative;
-  z-index: 2;
-}
-
-/* The 50/50 Split Box */
+/* The Card Wrapper */
 .ag-timeline-card_inner {
-  display: flex; /* Forces side-by-side */
-  flex-direction: row; 
+  display: flex;
+  align-items: stretch;
   background-color: #282828;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  opacity: 1 !important; 
-  transform: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: 0.4s;
+}
+
+/* Swapping logic: Row 1, 3, 5 (Odd) -> Image Left, Text Right */
+.ag-timeline_item:nth-child(odd) .ag-timeline-card_inner {
+  flex-direction: row;
+}
+
+/* Swapping logic: Row 2, 4 (Even) -> Text Left, Image Right */
+.ag-timeline_item:nth-child(even) .ag-timeline-card_inner {
+  flex-direction: row-reverse;
 }
 
 .ag-timeline-card_img-box {
-  flex: 1; /* Takes exactly 50% */
-  min-height: 250px;
+  flex: 1; 
+  min-height: 350px;
 }
 
 .ag-timeline-card_info {
-  flex: 1; /* Takes exactly 50% */
-  padding: 30px;
+  flex: 1;
+  padding: 40px;
   background-color: #11999E;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
+  text-align: left; /* Text alignment inside cards */
 }
 
 .time-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* Alternating Logic */
-.ag-timeline_item:nth-child(odd) {
-  justify-content: flex-start;
-  padding-left: 5%;
-}
-
-.ag-timeline_item:nth-child(even) {
-  justify-content: flex-end;
-  padding-right: 5%;
-}
-
-/* Year Circle */
 .ag-timeline-card_point {
-  height: 50px;
-  width: 50px;
-  line-height: 50px;
-  background-color: #ffffff;
-  border: 3px solid #11999E;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  font-weight: bold;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 5px;
+  display: block;
 }
 
 .ag-timeline-card_meta {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  color: #11999E;
-  margin-bottom: 5px;
+  color: #c6fced;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .ag-timeline-card_desc {
-  font-size: 15px;
+  font-size: 16px;
   color: #ffffff;
   line-height: 1.6;
+  margin: 0;
 }
 
 /* ==========================================
-   SKILLS & FOOTER
+   5. SKILLS & CAROUSEL
    ========================================== */
 .skill-row {
   width: 60%;
@@ -203,6 +180,25 @@ h3 {
   line-height: 2;
 }
 
+.carousel-inner > .item > img {
+  width: 25%;
+  margin: auto;
+  padding: 20px;
+}
+
+.skill_gif, .badminton_gif {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #11999E;
+}
+
+.skill_gif { float: left; margin-right: 30px; }
+.badminton_gif { float: right; margin-left: 30px; }
+
+/* ==========================================
+   6. BUTTONS & LINKS
+   ========================================== */
 .btn {
   background: #11cdd4;
   background-image: linear-gradient(to bottom, #11cdd4, #11999e);
@@ -211,13 +207,16 @@ h3 {
   font-size: 20px;
   padding: 10px 20px;
   text-decoration: none;
+  border: none;
   display: inline-block;
+  transition: 0.3s;
 }
 
 .btn:hover {
   background: #30ec3b;
   background-image: linear-gradient(to bottom, #30ec3b, #2bc48d);
   color: white;
+  text-decoration: none;
 }
 
 .footer-link {
@@ -227,22 +226,32 @@ h3 {
   text-decoration: none;
 }
 
+.footer-link:hover { color: white; }
+
+.copy_rights {
+  padding: 20px 0;
+  color: #11999E;
+}
+
 /* ==========================================
-   MOBILE RESPONSIVENESS
+   7. MOBILE RESPONSIVENESS
    ========================================== */
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .ag-timeline-card_inner {
-    flex-direction: column; /* Stacks image on top on mobile */
+    flex-direction: column !important; /* Forces stack on mobile */
   }
-  .ag-timeline-card_item {
-    width: 80%;
+  .ag-timeline-card_img-box {
+    min-height: 250px;
   }
-  .ag-timeline_line, .ag-timeline-card_point {
-    left: 20px;
-    transform: none;
+  .skill-row {
+    width: 90%;
+    text-align: center;
   }
-  .ag-timeline_item {
-    justify-content: flex-start !important;
-    padding-left: 60px !important;
+  .skill_gif, .badminton_gif {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  h1, .typewrite {
+    font-size: 3.5rem;
   }
 }
