@@ -8,21 +8,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-        .carousel-inner > .item > img {
-            width: 25%; /* Slightly smaller icons look cleaner */
-            margin: auto;
-            padding: 20px;
-        }
-        /* Mobile adjustment for timeline */
-        @media (max-width: 767px) {
-            .time-image { width: 100%; height: auto; }
-        }
+        .carousel-inner > .item > img { width: 30%; margin: auto; }
+        /* Fix for the blank timeline issue */
+        .ag-timeline_item { opacity: 1 !important; visibility: visible !important; position: relative; margin-bottom: 50px; }
+        .time-image { border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 100%; height: auto; }
     </style>
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="Javascript/typewriter.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@100&family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <div class="top-container">
@@ -38,9 +32,9 @@
 
     <div class="middle-container">
         <div class="profile">
-            <img class="profile_pic" src="logos/WhatsApp Image 2026-01-26 at 17.42.56 (1).jpeg" alt="Gokul-Lala-Profile">
+            <img class="profile_pic" src="logos/WhatsApp%20Image%202026-01-26%20at%2017.42.56%20(1).jpeg" alt="Gokul-Lala-Profile">
             <h2>About Me</h2>
-            <p class="intro">I am a Master of Science in Data Analytics with 1.5+ years of experience in designing and operating scalable automation services. I specialize in architecting workflows using Python and Xceptor, reducing manual effort by 35%.</p>
+            <p class="intro">Master of Science in Data Analytics from NCI. I architect automated workflows using Python and Xceptor, reducing manual effort by 35%.</p>
         </div>
 
         <hr>
@@ -51,25 +45,20 @@
                 <section class="ag-section">
                     <div class="ag-format-container">
                         <div class="js-timeline ag-timeline">
-                            <div class="js-timeline_line ag-timeline_line">
-                                <div class="js-timeline_line-progress ag-timeline_line-progress"></div>
-                            </div>
                             <div class="ag-timeline_list">
                                 
                                 <div class="js-timeline_item ag-timeline_item">
                                     <div class="ag-timeline-card_box">
-                                        <div class="ag-timeline-card_meta">Born</div>
                                         <div class="ag-timeline-card_point">2000</div>
+                                        <div class="ag-timeline-card_meta">Born</div>
                                     </div>
                                     <div class="ag-timeline-card_item">
                                         <div class="ag-timeline-card_inner">
                                             <div class="ag-timeline-card_img-box">
-                                                <img class="time-image" src="logos/Tirumala.jpg" alt="Tirumala" width="640" height="360" />
+                                                <img class="time-image" src="logos/Tirumala.jpg" alt="Tirumala">
                                             </div>
                                             <div class="ag-timeline-card_info">
-                                                <div class="ag-timeline-card_desc">
-                                                    Born on 2nd December 2000 in Tirumala, Andhra Pradesh.
-                                                </div>
+                                                <div class="ag-timeline-card_desc">Born in Tirumala, Andhra Pradesh.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -77,18 +66,16 @@
 
                                 <div class="js-timeline_item ag-timeline_item">
                                     <div class="ag-timeline-card_box">
-                                        <div class="ag-timeline-card_meta">eClerx Services</div>
                                         <div class="ag-timeline-card_point">2022</div>
+                                        <div class="ag-timeline-card_meta">eClerx</div>
                                     </div>
                                     <div class="ag-timeline-card_item">
                                         <div class="ag-timeline-card_inner">
                                             <div class="ag-timeline-card_img-box">
-                                                <img class="time-image" src="logos/ECLERX.NS_BIG.png" alt="eClerx" width="640" height="360" />
+                                                <img class="time-image" src="logos/ECLERX.NS_BIG.png" alt="eClerx">
                                             </div>
                                             <div class="ag-timeline-card_info">
-                                                <div class="ag-timeline-card_desc">
-                                                    Started as a Senior Analyst, automating financial workflows and identifying trends for global banking clients.
-                                                </div>
+                                                <div class="ag-timeline-card_desc">Senior Analyst: Automating financial workflows.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -96,18 +83,16 @@
 
                                 <div class="js-timeline_item ag-timeline_item">
                                     <div class="ag-timeline-card_box">
-                                        <div class="ag-timeline-card_meta">Masters</div>
                                         <div class="ag-timeline-card_point">2024</div>
+                                        <div class="ag-timeline-card_meta">Masters</div>
                                     </div>
                                     <div class="ag-timeline-card_item">
                                         <div class="ag-timeline-card_inner">
                                             <div class="ag-timeline-card_img-box">
-                                                <img class="time-image" src="https://www.nci.ie/Portals/0/NCI_Logo.png" alt="NCI" width="640" height="360" />
+                                                <img class="time-image" src="https://www.nci.ie/Portals/0/NCI_Logo.png" alt="NCI">
                                             </div>
                                             <div class="ag-timeline-card_info">
-                                                <div class="ag-timeline-card_desc">
-                                                    Completed MSc in Data Analytics from National College of Ireland, focusing on ML and Predictive Modeling.
-                                                </div>
+                                                <div class="ag-timeline-card_desc">MSc Data Analytics at National College of Ireland.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -124,30 +109,25 @@
 
         <div class="skills">
             <h2>Technical Toolbox</h2>
-            <div class="container">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item active"><img src="logos/python_logo_icon_168886 (1).png" alt="Python"></div>
-                        <div class="item"><img src="logos/mysql.png" alt="MySQL"></div>
-                        <div class="item"><img src="logos/postgresql_plain_wordmark_logo_icon_146390.png" alt="Postgres"></div>
-                        <div class="item"><img src="logos/Salesforce Logo.jpeg" alt="Salesforce"></div>
-                    </div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active"><img src="logos/python_logo_icon_168886%20(1).png" alt="Python"></div>
+                    <div class="item"><img src="logos/mysql.png" alt="MySQL"></div>
+                    <div class="item"><img src="logos/Salesforce%20Logo.jpeg" alt="Salesforce"></div>
                 </div>
             </div>
 
             <div class="skill-row">
-                <img class="badminton_gif" src="logos/Salesforce Logo.jpeg" alt="Salesforce">
+                <img class="skill_gif" src="logos/Salesforce%20Logo.jpeg" alt="Salesforce" style="width:100px; float:left; margin-right:20px;">
                 <h3>Agentforce & Automation</h3>
-                <p>Certified Agentforce Specialist. I build autonomous AI agents to handle complex business logic. 
-                   <a class="links" href="logos/Cert7338530_AgentforceSpecialist_20260105.pdf" target="_blank">View Certificate</a></p>
+                <p>Certified Agentforce Specialist. <a class="links" href="logos/Cert7338530_AgentforceSpecialist_20260105.pdf" target="_blank">View Certificate</a></p>
             </div>
         </div>
-        
+
         <hr>
 
         <div class="contact-me">
             <h2>Get In Touch</h2>
-            <p>Ready to automate your next big idea?</p>
             <a class="btn" href="mailto:gokulgupta133@gmail.com">Email Me</a>
         </div>
     </div>
